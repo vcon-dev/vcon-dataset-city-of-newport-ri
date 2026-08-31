@@ -1,0 +1,18 @@
+# Requirements for City of Newport RI vCon dataset tools
+
+# --- Deepgram engine (default) ---
+# Uses Deepgram's pre-recorded REST API via the standard library (urllib), so
+# no SDK dependency is required. Set DEEPGRAM_API_KEY in the environment.
+# Deepgram fetches the media by URL, so no local video download is needed.
+
+# --- Whisper engine (--engine whisper) ---
+# Local, offline transcription on Apple Silicon:
+mlx-whisper>=0.4.0
+# Non-Apple-Silicon fallback:
+# faster-whisper>=1.0.0
+
+# fetch_feed.py uses only the Python standard library.
+
+# FFmpeg + ffprobe are required for caption probing (both engines) and for
+# audio extraction (whisper engine):
+#   macOS: brew install ffmpeg
