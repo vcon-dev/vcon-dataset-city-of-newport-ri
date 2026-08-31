@@ -272,6 +272,12 @@ def preload_mlx_model(model_size: str) -> None:
     print("  Model loaded.")
 
 
+BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+)
+
+
 def download_video(url: str, clip_id: str) -> str:
     MEDIA_DIR.mkdir(parents=True, exist_ok=True)
     dest = MEDIA_DIR / f"{clip_id}.mp4"
@@ -279,7 +285,10 @@ def download_video(url: str, clip_id: str) -> str:
         print(f"  Using cached video: {dest.name} ({dest.stat().st_size // (1024*1024)} MB)")
         return str(dest)
     print(f"  Downloading video -> {dest.name}")
-    req = urllib.request.Request(url, headers={"User-Agent": "vcon-dataset-newport/1.0"})
+    # archive-video.granicus.com (the CDN the DownloadFile.php redirect lands on)
+    # 403s any non-browser User-Agent, so present a browser one here. The feed
+    # and the redirect itself still accept the project UA.
+    req = urllib.request.Request(url, headers={"User-Agent": BROWSER_UA})
     tmp = dest.with_suffix(".mp4.part")
     try:
         with urllib.request.urlopen(req, timeout=120) as resp, open(tmp, "wb") as f:

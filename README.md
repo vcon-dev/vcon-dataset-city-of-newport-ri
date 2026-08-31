@@ -23,21 +23,59 @@ All source material is public record, published by the City of Newport on its
   audio is transcribed by **Deepgram** (default) or local **Whisper**. When a
   meeting *does* carry captions, they are used directly instead.
 
+## Access
+
+The dataset is published in two places. Both hold the same files with the same
+layout; pick whichever suits the job.
+
+**Git** — clone the whole dataset, with history:
+
+```bash
+git clone https://github.com/vcon-dev/vcon-dataset-city-of-newport-ri.git
+```
+
+**S3** — anonymous read, no AWS account or credentials required. Useful for
+pulling a single meeting, or for streaming the set without a full clone:
+
+```
+s3://vcon-dataset-city-of-newport-ri/{body}/{filename}.vcon.json
+https://vcon-dataset-city-of-newport-ri.s3.amazonaws.com/{body}/{filename}.vcon.json
+```
+
+```bash
+# one meeting, over plain HTTPS
+curl -O "https://vcon-dataset-city-of-newport-ri.s3.amazonaws.com/citycouncil/newport_citycouncil_2026-08-26_1025.vcon.json"
+
+# browse or mirror with the AWS CLI (--no-sign-request = no credentials)
+aws s3 ls s3://vcon-dataset-city-of-newport-ri/ --recursive --no-sign-request
+aws s3 sync s3://vcon-dataset-city-of-newport-ri/ ./newport-vcons --no-sign-request
+```
+
+The bucket is read-only to the public: `s3:GetObject` and `s3:ListBucket` are
+granted anonymously, writes are denied.
+
 ## Repository structure
+
+One directory per meeting body:
 
 ```
 vcon-dataset-city-of-newport-ri/
-├── citycouncil/        # City Council regular & special meetings
-│   └── newport_citycouncil_2026-06-03_1002.vcon.json
+├── citycouncil/        # City Council regular, special & joint workshops
+│   └── newport_citycouncil_2026-08-26_1025.vcon.json
+├── planningboard/      # Planning Board
+├── zoningboard/        # Zoning Board of Review
+├── hdc/                # Historic District Commission
+├── waterfront/         # Waterfront Commission
+├── ...                 # one-off bodies (beach commission, stormwater, etc.)
 ├── scripts/
 │   ├── fetch_feed.py           # Granicus feed -> vCon skeletons
-│   ├── transcribe_newport.py   # download + captions/Whisper -> WTF transcript
+│   ├── transcribe_newport.py   # download + captions/Deepgram -> WTF transcript
 │   └── requirements.txt
 └── media/              # downloaded video/audio cache (gitignored)
 ```
 
-Other meeting bodies in the feed (Planning Board, Zoning Board of Review,
-Historic District Commission, etc.) can be added with the same tooling.
+Any other body appearing in the Granicus feed is picked up automatically by
+`fetch_feed.py --all`, which creates its directory on first sight.
 
 ## File naming
 
