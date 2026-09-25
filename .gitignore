@@ -42,3 +42,6 @@ env/
 *.srt
 *.vtt
 media/
+
+# oh-my-claudecode scratch
+.omc/
