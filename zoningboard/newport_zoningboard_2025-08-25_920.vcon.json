@@ -43,7 +43,8 @@
       "dialog": 0,
       "encoding": "json",
       "start": "2026-06-09T21:15:56.081502+00:00",
-      "body": "{\"source\": \"City of Newport, RI \\u2014 Granicus public meeting portal\", \"portal\": \"https://cityofnewport.granicus.com\", \"granicus_view_id\": 1, \"granicus_clip_id\": \"920\", \"meeting_body\": \"zoningboard\", \"meeting_date\": \"2025-08-25\", \"title\": \"Zoning Board of Review - August 2025 Meeting - Aug 25, 2025\"}"
+      "body": "{\"source\": \"City of Newport, RI \\u2014 Granicus public meeting portal\", \"portal\": \"https://cityofnewport.granicus.com\", \"granicus_view_id\": 1, \"granicus_clip_id\": \"920\", \"meeting_body\": \"zoningboard\", \"meeting_date\": \"2025-08-25\", \"title\": \"Zoning Board of Review - August 2025 Meeting - Aug 25, 2025\"}",
+      "mediatype": "application/json"
     },
     {
       "purpose": "lawful_basis",
@@ -51,7 +52,8 @@
       "dialog": 0,
       "encoding": "json",
       "start": "2026-06-09T21:15:56.081502+00:00",
-      "body": "{\"lawful_basis\": \"legal_obligation\", \"expiration\": \"2099-12-31T23:59:59+00:00\", \"purpose_grants\": [{\"purpose\": \"recording\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}, {\"purpose\": \"transcription\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}, {\"purpose\": \"publication\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}], \"terms_of_service\": \"http://webserver.rilegislature.gov/Statutes/TITLE42/42-46/INDEX.htm\", \"metadata\": {\"terms_of_service_name\": \"Rhode Island Open Meetings Act (R.I. Gen. Laws ch. 42-46)\", \"jurisdiction\": \"Rhode Island, USA\", \"controller\": \"City of Newport, Rhode Island\", \"notes\": \"Recording of an open public meeting, published by the City of Newport as a public record. Captured and transcribed for the public vCon dataset.\"}}"
+      "body": "{\"lawful_basis\": \"legal_obligation\", \"expiration\": \"2099-12-31T23:59:59+00:00\", \"purpose_grants\": [{\"purpose\": \"recording\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}, {\"purpose\": \"transcription\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}, {\"purpose\": \"publication\", \"granted\": true, \"granted_at\": \"2026-06-09T21:15:56.081502+00:00\"}], \"terms_of_service\": \"http://webserver.rilegislature.gov/Statutes/TITLE42/42-46/INDEX.htm\", \"metadata\": {\"terms_of_service_name\": \"Rhode Island Open Meetings Act (R.I. Gen. Laws ch. 42-46)\", \"jurisdiction\": \"Rhode Island, USA\", \"controller\": \"City of Newport, Rhode Island\", \"notes\": \"Recording of an open public meeting, published by the City of Newport as a public record. Captured and transcribed for the public vCon dataset.\"}}",
+      "mediatype": "application/json"
     }
   ],
   "analysis": [
